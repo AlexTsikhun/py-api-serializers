@@ -32,10 +32,7 @@ class GenreViewSet(viewsets.ModelViewSet):
 class ActorViewSet(viewsets.ModelViewSet):
     queryset = Actor.objects.all()
 
-    def get_serializer_class(self) -> Type[
-        ActorListSerializer
-        | ActorSerializer
-    ]:
+    def get_serializer_class(self) -> Type[ActorSerializer]:
         if self.action == "list":
             return ActorListSerializer
 
@@ -50,11 +47,7 @@ class CinemaHallViewSet(viewsets.ModelViewSet):
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
 
-    def get_serializer_class(self) -> Type[
-        MovieListSerializer
-        | MovieRetrieveSerializer
-        | MovieSerializer
-    ]:
+    def get_serializer_class(self) -> Type[MovieSerializer]:
         if self.action == "list":
             return MovieListSerializer
         elif self.action == "retrieve":
@@ -73,11 +66,7 @@ class MovieViewSet(viewsets.ModelViewSet):
 class MovieSessionViewSet(viewsets.ModelViewSet):
     queryset = MovieSession.objects.all()
 
-    def get_serializer_class(self) -> Type[
-        MovieSessionSerializer
-        | MovieSessionRetrieveSerializer
-        | MovieSessionListSerializer
-    ]:
+    def get_serializer_class(self) -> Type[MovieSessionSerializer]:
         if self.action == "list":
             return MovieSessionListSerializer
         elif self.action == "retrieve":
